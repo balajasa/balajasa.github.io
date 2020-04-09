@@ -7,7 +7,8 @@
 
 <html class="theme-next gemini use-motion" lang="zh-TW">
 <head>
-  <meta charset="UTF-8"/>
+  <meta name="google-site-verification" content="A6Kdr39jm13plGwbogsvCT6m3EP-Jn3xyhyfxbaitV4" />
+<meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -79,15 +80,15 @@
 
 
 
-<meta name="description" content="趕工中">
+<meta name="description" content="完成初步部落格的設置後，預設的主題覺得很傷眼睛開始著手尋找更換主題的方式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo個人部落格 - 進階設定 (修改主題&#x2F;配置)">
+<meta property="og:title" content="Hexo個人部落格 - 主題設定">
 <meta property="og:url" content="https://balajasa.github.io/2020/04/07/hello-world/index.html">
 <meta property="og:site_name" content="耀西的小角落">
-<meta property="og:description" content="趕工中">
+<meta property="og:description" content="完成初步部落格的設置後，預設的主題覺得很傷眼睛開始著手尋找更換主題的方式">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-04-07T08:40:00.000Z">
-<meta property="article:modified_time" content="2020-04-08T15:05:21.288Z">
+<meta property="article:modified_time" content="2020-04-09T15:18:58.702Z">
 <meta property="article:author" content="Liberes">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -126,7 +127,7 @@
 
 
 
-  <title>Hexo個人部落格 - 進階設定 (修改主題/配置) | 耀西的小角落</title>
+  <title>Hexo個人部落格 - 主題設定 | 耀西的小角落</title>
   
 
 
@@ -239,6 +240,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Sitemap
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -289,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo個人部落格 - 進階設定 (修改主題/配置)</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo個人部落格 - 主題設定</h1>
         
 
         <div class="post-meta">
@@ -317,8 +328,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-04-08T23:05:21+08:00">
-                2020-04-08
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-09T23:18:58+08:00">
+                2020-04-09
               </time>
             
           </span>
@@ -369,10 +380,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">文章字數 &#58;</span>
                 
                 <span title="Words count in article">
-                  3 
+                  1.2k 
                 </span>
               
 
@@ -385,10 +396,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
                 
                 <span title="Reading time">
-                  1 分鐘
+                  5 分鐘
                 </span>
               
             </div>
@@ -409,8 +420,58 @@
       
 
       
-        <p>趕工中</p>
+        <p>完成初步部落格的設置後，預設的主題覺得很傷眼睛<br>開始著手尋找更換主題的方式</p>
 <a id="more"></a>
+<h2 id="Hexo-主題更換"><a href="#Hexo-主題更換" class="headerlink" title="Hexo 主題更換"></a>Hexo 主題更換</h2><p>官方提供許多主題可更換：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Themes | Hexo</a><br>個人偏好這種乾淨簡潔風 <a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a>，這個主題也是非常熱門的主題</p>
+<h3 id="安裝喜愛的主題"><a href="#安裝喜愛的主題" class="headerlink" title="安裝喜愛的主題"></a>安裝喜愛的主題</h3><p>這邊就以Next為範例，先將要安裝的主題clone下來</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+<p>安裝完成後，themes的資料夾內會多一個next的資料夾。<br>到_config.yml檔案內，尋找 # Extensions，將主題啟用才算完成唷！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<h3 id="主題設定"><a href="#主題設定" class="headerlink" title="主題設定"></a>主題設定</h3><p>接著來調整主題的相關設定</p>
+<h4 id="1-版型設定"><a href="#1-版型設定" class="headerlink" title="1. 版型設定"></a>1. 版型設定</h4><p>NexT 提供多種不同的外觀，可以在主題設定theme/next/_config.yml中找到 # Schemes<br>將自己喜愛的註解打開就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-代碼背景"><a href="#2-代碼背景" class="headerlink" title="2. 代碼背景"></a>2. 代碼背景</h4><p>NexT 的代碼背景色也可做更換，共有5款主題可選擇。在 主題設定theme/next/_config.yml 文件中找到 highlight_theme 。預設使用的是白色的normal，選項有normal、night、 night blue、night bright、night eighties。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Code Highlight theme</span><br><span class="line"># Available value:</span><br><span class="line">#    normal | night | night eighties | night blue | night bright</span><br><span class="line">highlight_theme: normal</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-大頭貼設定"><a href="#3-大頭貼設定" class="headerlink" title="3. 大頭貼設定"></a>3. 大頭貼設定</h4><p>到 theme/next/_config.yml 文件中，搜尋# Sidebar Avatar</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Sidebar Avatar</span><br><span class="line"># in theme directory(source&#x2F;images): &#x2F;images&#x2F;avatar.gif</span><br><span class="line"># in site  directory(source&#x2F;uploads): &#x2F;uploads&#x2F;avatar.gif</span><br><span class="line">avatar: 大頭貼位置</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-設置社群媒體連結"><a href="#4-設置社群媒體連結" class="headerlink" title="4. 設置社群媒體連結"></a>4. 設置社群媒體連結</h4><p>到 theme/next/_config.yml 文件中，找到 #Social Links，將要顯示在首頁的媒體打開註解，並在後方加入連結即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https:&#x2F;&#x2F;github.com&#x2F; || github</span><br><span class="line">  #E-Mail: mailto:yourname@gmail.com || envelope</span><br><span class="line">  #Google: https:&#x2F;&#x2F;plus.google.com&#x2F;yourname || google</span><br><span class="line">  #Twitter: https:&#x2F;&#x2F;twitter.com&#x2F;yourname || twitter</span><br><span class="line">  #FB Page: https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname || facebook</span><br><span class="line">  #VK Group: https:&#x2F;&#x2F;vk.com&#x2F;yourname || vk</span><br><span class="line">  #StackOverflow: https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname || stack-overflow</span><br><span class="line">  #YouTube: https:&#x2F;&#x2F;youtube.com&#x2F;yourname || youtube</span><br><span class="line">  #Instagram: https:&#x2F;&#x2F;instagram.com&#x2F;yourname || instagram</span><br><span class="line">  #Skype: skype:yourname?call|chat || skype</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-增加選單分頁"><a href="#5-增加選單分頁" class="headerlink" title="5. 增加選單分頁"></a>5. 增加選單分頁</h4><p>預設只有首頁的分頁，可依據個人需求將分頁打開或是增加，在 theme/next/_config.yml 設定，也可將分頁名稱修改為中文→「首頁: /|| home」。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F;|| home</span><br><span class="line">  about: &#x2F;about&#x2F;|| user</span><br><span class="line">  tags: &#x2F;tags&#x2F;|| tags</span><br><span class="line">  categories: &#x2F;categories&#x2F;|| th</span><br><span class="line">  archives: &#x2F;archives&#x2F;|| archive</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat</span><br><span class="line">  #分頁名稱：路徑 || 分頁icon</span><br></pre></td></tr></table></figure>
+<p>這邊要特別注意的是，在打開分頁調整完畢後，記得「路徑 與 ||」中間不能有空格，否則會造成分頁無法顯示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Enable&#x2F;Disable menu icons.</span><br><span class="line">menu_icons:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<p>在menu的下方可以選擇是否要顯示分頁icon，也可以更換成自己喜愛的icon，Next使用的是 <a href="https://fontawesome.com/icons?d=gallery" target="_blank" rel="noopener">Font Awesome</a> 的icon，可至網站選擇。</p>
+<h4 id="6-設置網站icon"><a href="#6-設置網站icon" class="headerlink" title="6. 設置網站icon"></a>6. 設置網站icon</h4><p>將要更換的icon檔案放到 themes/next/source/images 裡面，<br>打開 theme/next/_config.yml ，搜尋 favicon ，依序將檔案更換即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: &#x2F;images&#x2F;favicon-16x16-next.png</span><br><span class="line">  medium: &#x2F;images&#x2F;favicon-32x32-next.png</span><br><span class="line">  apple_touch_icon: &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: &#x2F;images&#x2F;logo.svg</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="主題套件設定"><a href="#主題套件設定" class="headerlink" title="主題套件設定"></a>主題套件設定</h3><h4 id="1-在部落格底部增加訪客統計"><a href="#1-在部落格底部增加訪客統計" class="headerlink" title="1. 在部落格底部增加訪客統計"></a>1. 在部落格底部增加訪客統計</h4><p>Next主題已有置入這個功能了，首先開啟 theme/next/_config.yml 搜尋 busuanzi_count 把這個功能打開<br>再依照個人使用需求修改，這邊的site_header(icon)也都是可以做修改的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  # count values only if the other configs are false</span><br><span class="line">  enable: true  &#x2F;&#x2F; 開啟統計</span><br><span class="line">  # custom uv span for the whole site 網站的訪客數</span><br><span class="line">  site_uv: true  </span><br><span class="line">  site_uv_header: &lt;i class&#x3D;&quot;fa fa-user&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">  site_uv_footer:</span><br><span class="line">  # custom pv span for the whole site 網站的總瀏覽量</span><br><span class="line">  site_pv: true</span><br><span class="line">  site_pv_header: &lt;i class&#x3D;&quot;fa fa-eye&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">  site_pv_footer:</span><br><span class="line">  # custom pv span for one page only  閱讀數量</span><br><span class="line">  page_pv: true</span><br><span class="line">  page_pv_header: &lt;i class&#x3D;&quot;fa fa-file-o&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">  page_pv_footer:</span><br></pre></td></tr></table></figure>
+
+<p>主題內是使用的是不蒜子的腳本統計，若開啟功能後有無法顯示的問題，可至 layout/_third-party/analytics/busuanzi-counter.swig 開啟檔案，將第3行的腳本網址更改為 <a href="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" target="_blank" rel="noopener">https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src&#x3D;&quot;https:&#x2F;&#x2F;busuanzi.ibruce.info&#x2F;busuanzi&#x2F;2.3&#x2F;busuanzi.pure.mini.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>※在Local端的數字會顯示異常，推到Github上就會顯示正確囉！</p>
+<h4 id="2-文章字數統計-amp-預計閱讀時間"><a href="#2-文章字數統計-amp-預計閱讀時間" class="headerlink" title="2. 文章字數統計 &amp; 預計閱讀時間"></a>2. 文章字數統計 &amp; 預計閱讀時間</h4><p>這邊好像會有不同的方法開啟，原本試的是 symbols_count_time 一直沒有成功<br>後來使用的是Next主題內建的 post_wordcount<br>首先，安裝 hexo-wordcount 套件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+
+<p>開啟 theme/next/_config.yml 文件，找到 post_wordcount 依個人需求調整以下設定。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true  &#x2F;&#x2F; 單篇文章字數統計</span><br><span class="line">  min2read: true  &#x2F;&#x2F; 單篇文章閱讀時間</span><br><span class="line">  totalcount: false  &#x2F;&#x2F; 網站字數統計</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
       
     </div>
     
@@ -427,7 +488,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
           
         </div>
       
@@ -500,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -575,6 +645,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-主題更換"><span class="nav-number">1.</span> <span class="nav-text">Hexo 主題更換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝喜愛的主題"><span class="nav-number">1.1.</span> <span class="nav-text">安裝喜愛的主題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題設定"><span class="nav-number">1.2.</span> <span class="nav-text">主題設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版型設定"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 版型設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-代碼背景"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 代碼背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-大頭貼設定"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 大頭貼設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-設置社群媒體連結"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 設置社群媒體連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-增加選單分頁"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 增加選單分頁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-設置網站icon"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 設置網站icon</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題套件設定"><span class="nav-number">1.3.</span> <span class="nav-text">主題套件設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在部落格底部增加訪客統計"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 在部落格底部增加訪客統計</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-文章字數統計-amp-預計閱讀時間"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 文章字數統計 &amp; 預計閱讀時間</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
