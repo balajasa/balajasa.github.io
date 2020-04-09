@@ -80,15 +80,15 @@
 
 
 
-<meta name="description" content="完成初步部落格的設置後，預設的主題覺得很傷眼睛開始著手尋找更換主題的方式">
+<meta name="description" content="完成初步部落格的設置後，預設的主題覺得很傷眼睛換主題是建部落格時最開心也最燒腦的事">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo個人部落格 - 主題設定">
-<meta property="og:url" content="https://balajasa.github.io/2020/04/07/hello-world/index.html">
+<meta property="og:url" content="https://balajasa.github.io/2020/04/07/note-20200407-1/index.html">
 <meta property="og:site_name" content="耀西的小角落">
-<meta property="og:description" content="完成初步部落格的設置後，預設的主題覺得很傷眼睛開始著手尋找更換主題的方式">
+<meta property="og:description" content="完成初步部落格的設置後，預設的主題覺得很傷眼睛換主題是建部落格時最開心也最燒腦的事">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-04-07T08:40:00.000Z">
-<meta property="article:modified_time" content="2020-04-09T15:18:58.702Z">
+<meta property="article:modified_time" content="2020-04-09T16:06:22.180Z">
 <meta property="article:author" content="Liberes">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="https://balajasa.github.io/2020/04/07/hello-world/"/>
+  <link rel="canonical" href="https://balajasa.github.io/2020/04/07/note-20200407-1/"/>
 
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://balajasa.github.io/2020/04/07/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://balajasa.github.io/2020/04/07/note-20200407-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liberes">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-04-09T23:18:58+08:00">
-                2020-04-09
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-10T00:06:22+08:00">
+                2020-04-10
               </time>
             
           </span>
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">文章字數 &#58;</span>
                 
                 <span title="Words count in article">
-                  1.2k 
+                  1.4k 
                 </span>
               
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
                 
                 <span title="Reading time">
-                  5 分鐘
+                  6 分鐘
                 </span>
               
             </div>
@@ -420,7 +420,7 @@
       
 
       
-        <p>完成初步部落格的設置後，預設的主題覺得很傷眼睛<br>開始著手尋找更換主題的方式</p>
+        <p>完成初步部落格的設置後，預設的主題覺得<del>很傷眼睛</del><br>換主題是建部落格時最開心也最燒腦的事</p>
 <a id="more"></a>
 <h2 id="Hexo-主題更換"><a href="#Hexo-主題更換" class="headerlink" title="Hexo 主題更換"></a>Hexo 主題更換</h2><p>官方提供許多主題可更換：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Themes | Hexo</a><br>個人偏好這種乾淨簡潔風 <a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a>，這個主題也是非常熱門的主題</p>
 <h3 id="安裝喜愛的主題"><a href="#安裝喜愛的主題" class="headerlink" title="安裝喜愛的主題"></a>安裝喜愛的主題</h3><p>這邊就以Next為範例，先將要安裝的主題clone下來</p>
@@ -462,15 +462,14 @@
 <p>開啟 theme/next/_config.yml 文件，找到 post_wordcount 依個人需求調整以下設定。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true  &#x2F;&#x2F; 單篇文章字數統計</span><br><span class="line">  min2read: true  &#x2F;&#x2F; 單篇文章閱讀時間</span><br><span class="line">  totalcount: false  &#x2F;&#x2F; 網站字數統計</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
+<h4 id="3-設定標籤-amp-分類"><a href="#3-設定標籤-amp-分類" class="headerlink" title="3. 設定標籤 &amp; 分類"></a>3. 設定標籤 &amp; 分類</h4><p>這個在設定時搞了很久才弄出來，一定要記錄一下！！！<br>首先，輸入以下語法建立標籤和分類的頁面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>建立完成後，到 theme/next/_config.yml ，找到 menu 將 tags 和 categories 的註解打開。(若已經打開的話則無需理會)</p>
+<pre><code>menu:
+  tags: /tags/|| tags
+  categories: /categories/|| th</code></pre><p>剛才建立的頁面還需做一些調整，到 <code>/source</code> 資料夾中，會看到 <code>tags</code> 和 <code>categories</code> 兩個資料夾，分別打開裡面的 <code>index.md</code> ，分別加上 <code>type: &quot;tags&quot;</code> 以及 <code>type: &quot;categories&quot;</code>即可。</p>
+<hr>
+<p>參考來源：<a href="https://www.twblogs.net/a/5c2a0256bd9eee01606d3636" target="_blank" rel="noopener">https://www.twblogs.net/a/5c2a0256bd9eee01606d3636</a></p>
 
       
     </div>
@@ -655,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-主題更換"><span class="nav-number">1.</span> <span class="nav-text">Hexo 主題更換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝喜愛的主題"><span class="nav-number">1.1.</span> <span class="nav-text">安裝喜愛的主題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題設定"><span class="nav-number">1.2.</span> <span class="nav-text">主題設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版型設定"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 版型設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-代碼背景"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 代碼背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-大頭貼設定"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 大頭貼設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-設置社群媒體連結"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 設置社群媒體連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-增加選單分頁"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 增加選單分頁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-設置網站icon"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 設置網站icon</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題套件設定"><span class="nav-number">1.3.</span> <span class="nav-text">主題套件設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在部落格底部增加訪客統計"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 在部落格底部增加訪客統計</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-文章字數統計-amp-預計閱讀時間"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 文章字數統計 &amp; 預計閱讀時間</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-主題更換"><span class="nav-number">1.</span> <span class="nav-text">Hexo 主題更換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝喜愛的主題"><span class="nav-number">1.1.</span> <span class="nav-text">安裝喜愛的主題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題設定"><span class="nav-number">1.2.</span> <span class="nav-text">主題設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版型設定"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 版型設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-代碼背景"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 代碼背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-大頭貼設定"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 大頭貼設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-設置社群媒體連結"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 設置社群媒體連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-增加選單分頁"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 增加選單分頁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-設置網站icon"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 設置網站icon</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題套件設定"><span class="nav-number">1.3.</span> <span class="nav-text">主題套件設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在部落格底部增加訪客統計"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 在部落格底部增加訪客統計</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-文章字數統計-amp-預計閱讀時間"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 文章字數統計 &amp; 預計閱讀時間</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-設定標籤-amp-分類"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 設定標籤 &amp; 分類</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
