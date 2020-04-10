@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-TW">
+<head>
+  <meta name="google-site-verification" content="A6Kdr39jm13plGwbogsvCT6m3EP-Jn3xyhyfxbaitV4" />
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/yoshiegg@48.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/yoshiegg@32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/yoshiegg@16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/yoshiegg@48.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Vue Cli,菜蟲學習筆記,Vue," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在完成基本的webpack設定後，接著要安裝的是Vue RouterVue Router是vue的套件，為前端模擬路由，達成切換網址時也能切換到相對組件的效果。Introduction | Vue Router">
+<meta property="og:type" content="article">
+<meta property="og:title" content="菜蟲學習筆記：Vue Router 配置">
+<meta property="og:url" content="https://balajasa.github.io/2020/04/10/note-20200410-1/index.html">
+<meta property="og:site_name" content="耀西的小角落">
+<meta property="og:description" content="在完成基本的webpack設定後，接著要安裝的是Vue RouterVue Router是vue的套件，為前端模擬路由，達成切換網址時也能切換到相對組件的效果。Introduction | Vue Router">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/wOihzgE.png">
+<meta property="og:image" content="https://i.imgur.com/4cuzel0.png">
+<meta property="og:image" content="https://i.imgur.com/p8XWzhP.png">
+<meta property="og:image" content="https://i.imgur.com/jI9mKqK.png">
+<meta property="og:image" content="https://i.imgur.com/2mJMzef.png">
+<meta property="og:image" content="https://i.imgur.com/olxZEpS.png">
+<meta property="og:image" content="https://i.imgur.com/6x6Pqrc.png">
+<meta property="article:published_time" content="2020-04-10T07:39:00.000Z">
+<meta property="article:modified_time" content="2020-04-10T10:18:57.618Z">
+<meta property="article:author" content="Liberes">
+<meta property="article:tag" content="Vue Cli">
+<meta property="article:tag" content="菜蟲學習筆記">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/wOihzgE.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://balajasa.github.io/2020/04/10/note-20200410-1/"/>
+
+
+
+
+
+  <title>菜蟲學習筆記：Vue Router 配置 | 耀西的小角落</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107720909-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">耀西的小角落</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Yoshi isn't a Turtle.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首頁">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-歸檔">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://balajasa.github.io/2020/04/10/note-20200410-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liberes">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Yoshi_sit.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耀西的小角落">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">菜蟲學習筆記：Vue Router 配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-10T15:39:00+08:00">
+                2020-04-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-10T18:18:57+08:00">
+                2020-04-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">文章字數 &#58;</span>
+                
+                <span title="Words count in article">
+                  2.3k 
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+                
+                <span title="Reading time">
+                  10 分鐘
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在完成基本的webpack設定後，接著要安裝的是Vue Router<br>Vue Router是vue的套件，為前端模擬路由，達成切換網址時也能切換到相對組件的效果。<br><a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">Introduction | Vue Router</a></p>
+<a id="more"></a>
+
+<h2 id="Vue-Router-安裝"><a href="#Vue-Router-安裝" class="headerlink" title="Vue Router 安裝"></a>Vue Router 安裝</h2><p>NPM下載</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue-Router-設置"><a href="#Vue-Router-設置" class="headerlink" title="Vue Router 設置"></a>Vue Router 設置</h2><h3 id="1-Router配置檔案-前端路由"><a href="#1-Router配置檔案-前端路由" class="headerlink" title="1. Router配置檔案(前端路由)"></a>1. Router配置檔案(前端路由)</h3><p>→決定由哪個網址讀取元件<br>建立資料夾及檔案：src/router/index.js<br>index.js配置檔案中須包含以下程式碼以安裝路由功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此為Vue Cli 2.x</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line">	<span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-將檔案匯出至main-js"><a href="#2-將檔案匯出至main-js" class="headerlink" title="2. 將檔案匯出至main.js"></a>2. 將檔案匯出至main.js</h3><p>接著，需要將<code>index.js</code>設定的資料，匯出給entry<code>main.js</code>使用<br>將檔案import進入<code>main.js</code>寫法為：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span>; <span class="comment">// 將步驟1的index.js匯入至main.js</span></span><br><span class="line">router <span class="comment">// 將配置檔router加入new vue之下</span></span><br></pre></td></tr></table></figure>
+<p><code>main.js</code> 結果如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span>; <span class="comment">// 將步驟1的index.js匯入至main.js</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* eslint-disable no-new */</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span>,</span><br><span class="line">  router, <span class="comment">// 將配置檔router加入new vue之下</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<img src="https://i.imgur.com/wOihzgE.png">
+設定後網址會增加#字號，但畫面還不會有任何改變。
+
+<h3 id="3-定義-Router-路徑"><a href="#3-定義-Router-路徑" class="headerlink" title="3. 定義 Router 路徑"></a>3. 定義 Router 路徑</h3><p>在router中定義路徑，至<code>index.js</code>內增加routes</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">'../components/HelloWorld'</span>  <span class="comment">// 先將將檔案引入，再做component的對應</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes: [</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'首頁'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">            path: <span class="string">'/'</span>,  <span class="comment">// 對應的虛擬路徑</span></span><br><span class="line">            component: Home, <span class="comment">// 對應的元件</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>此處Vue Cli 3寫法會有不同，寫法為：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes: [</span><br><span class="line">	&#123;</span><br><span class="line">      name: <span class="string">'首頁'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">      path: <span class="string">'/'</span>,  <span class="comment">// 對應的虛擬路徑</span></span><br><span class="line">      component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'../components/HelloWorld.vue'</span>)  <span class="comment">// Cli3直接在此引入即可</span></span><br><span class="line">    &#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+<p>完成基本配置後，由於使用了 Vue.use( VueRouter )，會在 Vue 中增加 <router-view/> 與 <router-link/> 這兩個組件。</p>
+<h3 id="4-使用-lt-router-view-gt-amp-lt-router-link-gt"><a href="#4-使用-lt-router-view-gt-amp-lt-router-link-gt" class="headerlink" title="4. 使用 &lt;router-view/&gt; &amp; &lt;router-link/&gt;"></a>4. 使用 <code>&lt;router-view/&gt;</code> &amp; <code>&lt;router-link/&gt;</code></h3><p>打開App.vue將router要呈現的頁面放在元件上，<code>&lt;router-view&gt;&lt;/router-view&gt;</code>為呈現元件的地方。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;router-view/&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="lt-router-view-gt"><a href="#lt-router-view-gt" class="headerlink" title="&lt;router-view/&gt;"></a><code>&lt;router-view/&gt;</code></h4><p><code>&lt;router-view&gt;</code> 渲染的組件還可以內嵌自己的<code>&lt;router-view&gt;</code>，根據路徑去渲染组件。<br>其他屬性(非 router-view 使用的屬性)都會直接傳給渲染的組件，大部份每個路由的數據都是包含在路由參數中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本view，自動預設name屬性為default</span></span><br><span class="line">&lt;router-view /&gt;</span><br><span class="line"><span class="comment">// 具名view，name屬性會負責渲染相對設定組件</span></span><br><span class="line">&lt;router-view name=<span class="string">"name"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="lt-router-link-gt"><a href="#lt-router-link-gt" class="headerlink" title="&lt;router-link/&gt;"></a><code>&lt;router-link/&gt;</code></h4><p>切換路徑的連結，實際會渲染出一個a連結，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=<span class="string">"path"</span>&gt;連結&lt;<span class="regexp">/router-link&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-新增Router路徑及連結"><a href="#5-新增Router路徑及連結" class="headerlink" title="5. 新增Router路徑及連結"></a>5. 新增Router路徑及連結</h3><h4 id="新增路徑"><a href="#新增路徑" class="headerlink" title="新增路徑"></a>新增路徑</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes: [</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'首頁'</span>,</span><br><span class="line">            path: <span class="string">'/index'</span>,</span><br><span class="line">            component: Home,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'新元件名稱'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">            path: <span class="string">'/新路徑'</span>,  <span class="comment">// 對應的虛擬路徑</span></span><br><span class="line">            component: 新元件, <span class="comment">// 對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="新增連結"><a href="#新增連結" class="headerlink" title="新增連結"></a>新增連結</h4><p>Vue Router寫法(透過path)：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"nav-item active"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">class</span>=<span class="string">"nav-link"</span> <span class="attr">to</span>=<span class="string">"/index"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>※ 將a更換為router-link，href=”#”更換為to=”/“ (to路徑為index.js內設定的path)</p>
+<p>Vue Router寫法(透過name)：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"nav-item active"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">class</span>=<span class="string">"nav-link"</span> <span class="attr">:to</span>=<span class="string">"&#123; name:'首頁' &#125;"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>※ 將a更換為router-link，href=”#”更換為動態顯示:to=”{ name:’首頁’ }”</p>
+<h3 id="6-製作巢狀路由頁面"><a href="#6-製作巢狀路由頁面" class="headerlink" title="6. 製作巢狀路由頁面"></a>6. 製作巢狀路由頁面</h3><h4 id="1-在新增子分頁的分頁上，加入-lt-router-view-gt-lt-router-view-gt"><a href="#1-在新增子分頁的分頁上，加入-lt-router-view-gt-lt-router-view-gt" class="headerlink" title="1.在新增子分頁的分頁上，加入&lt;router-view&gt;&lt;/router-view&gt;"></a>1.在新增子分頁的分頁上，加入<code>&lt;router-view&gt;&lt;/router-view&gt;</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">  	&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card"</span> style=<span class="string">"width: 18rem;"</span>&gt;</span><br><span class="line">    	&lt;router-view&gt;&lt;<span class="regexp">/router-view&gt;  /</span><span class="regexp">/ router-view會協助切換子分頁的內容  </span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-在Router的配置檔上加入子分頁"><a href="#2-在Router的配置檔上加入子分頁" class="headerlink" title="2.在Router的配置檔上加入子分頁"></a>2.在Router的配置檔上加入子分頁</h4><p>將元件載入<code>index.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Child <span class="keyword">from</span> <span class="string">'../components/pages/child'</span>;</span><br><span class="line"><span class="keyword">import</span> Child2 <span class="keyword">from</span> <span class="string">'../components/pages/child2'</span>;</span><br><span class="line"><span class="keyword">import</span> Child3 <span class="keyword">from</span> <span class="string">'../components/pages/child3'</span>;</span><br></pre></td></tr></table></figure>
+<p>使用<code>children:[]</code>加入要製作子分頁的元件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">name: <span class="string">'分頁'</span>,  </span><br><span class="line">path: <span class="string">'/page'</span>,  </span><br><span class="line">component: Page, </span><br><span class="line">children: [</span><br><span class="line">    &#123;</span><br><span class="line">        name: <span class="string">'卡片1'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">        path: <span class="string">''</span>,  <span class="comment">// 路徑移除，表示會直接在page之下載入元件</span></span><br><span class="line">        component: Child, <span class="comment">// 對應的元件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        name: <span class="string">'卡片2'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">        path: <span class="string">'child2'</span>,  <span class="comment">// 對應的虛擬路徑</span></span><br><span class="line">        component: Child2, <span class="comment">// 對應的元件</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        name: <span class="string">'卡片3'</span>,  </span><br><span class="line">        path: <span class="string">'child3'</span>,  </span><br><span class="line">        component: Child3, </span><br><span class="line">    &#125;,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-切換子分頁"><a href="#3-切換子分頁" class="headerlink" title="3.切換子分頁"></a>3.切換子分頁</h4><p>使用<code>&lt;router-link&gt;&lt;/router-link&gt;</code>切換子分頁</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=<span class="string">"/page/"</span>&gt;卡片<span class="number">1</span>&lt;<span class="regexp">/router-link&gt;</span></span><br><span class="line"><span class="regexp">&lt;router-link to="/</span>page/child2<span class="string">"&gt;卡片2&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">&lt;router-link to="</span>/page/child3<span class="string">"&gt;卡片3&lt;/router-link&gt;</span></span><br></pre></td></tr></table></figure>
+<p>增加後畫面如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">  	&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"card"</span> style=<span class="string">"width: 18rem;"</span>&gt;</span><br><span class="line">    	&lt;router-view&gt;&lt;<span class="regexp">/router-view&gt;  /</span><span class="regexp">/ router-view會協助切換子分頁的內容</span></span><br><span class="line"><span class="regexp">        &lt;router-link to="/</span>page/<span class="string">"&gt;卡片1&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">		&lt;router-link to="</span>/page/child2<span class="string">"&gt;卡片2&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">		&lt;router-link to="</span>/page/child3<span class="string">"&gt;卡片3&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/template&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="動態路由切換頁面-amp-ajax切換"><a href="#動態路由切換頁面-amp-ajax切換" class="headerlink" title="動態路由切換頁面 &amp; ajax切換"></a>動態路由切換頁面 &amp; ajax切換</h2><h3 id="調整動態路由路徑"><a href="#調整動態路由路徑" class="headerlink" title="調整動態路由路徑"></a>調整動態路由路徑</h3><p>1.至index.js下調整動態路由路徑，可將網址調整為動態路由(非固定分頁名稱)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    name: <span class="string">'卡片3'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">    path: <span class="string">'child/:id'</span>,  <span class="comment">// id=動態路由</span></span><br><span class="line">    component: Child3, <span class="comment">// 對應的元件</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>2.至需調整為動態路由的頁面中新增</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$route.params.id;  <span class="comment">// 存取動態路由的方式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>created()</code>意思為：從router中讀取參數使用，讀取的項目為id(自定義)</p>
+<p><img src="https://i.imgur.com/4cuzel0.png" alt=""></p>
+<p>3.使用axios套件取得ajax遠端資料 (axios套件安裝方式參考：)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$http.get(<span class="string">'https://randomuser.me/api/'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(response.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/p8XWzhP.png" alt=""></p>
+<p>axios取得ajax資料使用方式為：<br><img src="https://i.imgur.com/jI9mKqK.png" alt=""></p>
+<p>4.使用動態路由重複存取相同資料<br>這裡使用 <a href="https://randomuser.me/" target="_blank" rel="noopener">Randomuser User</a> 可用API測試串接資料</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> id = <span class="keyword">this</span>.$route.params.id;  <span class="comment">// 將id讀取下來後，從router中讀取參數使用</span></span><br><span class="line"><span class="keyword">this</span>.$http.get(<span class="string">`https://randomuser.me/api/?seed=<span class="subst">$&#123;id&#125;</span>`</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;  </span><br><span class="line"><span class="comment">// $&#123;id&#125;動態讀取id資料</span></span><br><span class="line"><span class="built_in">console</span>.log(response);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/2mJMzef.png" alt=""></p>
+<hr>
+<h2 id="同個畫面執行兩個以上router-view"><a href="#同個畫面執行兩個以上router-view" class="headerlink" title="同個畫面執行兩個以上router-view"></a>同個畫面執行兩個以上router-view</h2><p>Ex:<br><img src="https://i.imgur.com/olxZEpS.png" alt=""></p>
+<p>說明：點選page.vue後，會同時執行2個<code>&lt;router-view&gt;</code>(page.vue、menu.vue)</p>
+<p>1.在App.vue新增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view name&#x3D;&quot;menu&quot;&gt;&lt;&#x2F;router-view&gt; &lt;!-- 新加入的選單，載入menu --&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">  &lt;router-view&gt;&lt;&#x2F;router-view&gt; &lt;!-- 沒使用name的router-view為預設，載入page --&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>有新增name的router-view會連接到該內容</li>
+<li>若無使用name的router-view為預設值，此處會載入page.vue</li>
+</ul>
+<p>2.至index.js<br><img src="https://i.imgur.com/6x6Pqrc.png" alt=""></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// name: '分頁',  // 元件呈現的名稱  // 因為要讓連結直接連到下方children中的卡片1，故此處的name需註解掉，才不會造成重複載入</span></span><br><span class="line">    path: <span class="string">'/page'</span>,  <span class="comment">// 對應的虛擬路徑</span></span><br><span class="line">    <span class="comment">// component: Page, // 對應的元件</span></span><br><span class="line">    components: &#123;</span><br><span class="line">        <span class="keyword">default</span>: Page,  <span class="comment">//載入預設沒有命名的router-view</span></span><br><span class="line">        menu: Menu,  <span class="comment">//此處為對應有自定義名稱的router-view</span></span><br><span class="line">    &#125;,</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'卡片1'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">            path: <span class="string">''</span>,  <span class="comment">// 路徑移除，表示會直接在page之下載入元件</span></span><br><span class="line">            component: Child, <span class="comment">// 對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'卡片2'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">            path: <span class="string">'child2'</span>,  <span class="comment">// 對應的虛擬路徑</span></span><br><span class="line">            component: Child2, <span class="comment">// 對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'卡片3'</span>,  <span class="comment">// 元件呈現的名稱</span></span><br><span class="line">            path: <span class="string">'child3'</span>,  <span class="comment">// id=動態路由</span></span><br><span class="line">            component: Child3, <span class="comment">// 對應的元件</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新增一個components物件，default為載入預設沒有命名的router-view，menu為對應App.vue中有自定義名稱的router-view<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">components: &#123;</span><br><span class="line">    <span class="keyword">default</span>: Page,  <span class="comment">// 載入預設沒有命名的router-view</span></span><br><span class="line">    menu: Menu,  <span class="comment">// 此處為對應有自定義名稱的router-view</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li>將原先component註解掉，此處執行替換為components物件</li>
+<li>原先的<code>name: &#39;分頁&#39;,</code>在這邊也要註解掉，因為要讓<code>default: Page</code>直接連結到下方children中的卡片1，才不會造成重複載入</li>
+</ul>
+<hr>
+<h2 id="實際切換路由方法"><a href="#實際切換路由方法" class="headerlink" title="實際切換路由方法"></a>實際切換路由方法</h2><h3 id="router-push"><a href="#router-push" class="headerlink" title="router.push"></a>router.push</h3><p>除了使用<code>&lt;router-link&gt;</code>創建a連結來定義連結，還可以使用router的實例方法，透過編寫代碼來實現。</p>
+<table>
+<thead>
+<tr>
+<th>Declarative</th>
+<th>Programmatic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;router-link :to=&quot;...&quot;&gt;</code></td>
+<td><code>router.push(...)</code></td>
+</tr>
+</tbody></table>
+<p>文件使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">router.push(<span class="string">'home'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 對象</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">'home'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名的路由</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">'user'</span>, <span class="attr">params</span>: &#123; <span class="attr">userId</span>: <span class="string">'123'</span> &#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 帶查詢參數，變成 /register?plan=private</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">'register'</span>, <span class="attr">query</span>: &#123; <span class="attr">plan</span>: <span class="string">'private'</span> &#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>※ 如果提供了path，params會被忽略，上述例子中的 query 並不屬於這種情況。取而代之的是下面例子的做法，需要提供路由的name或完整帶有參數的path：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> userId = <span class="string">'123'</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">'user'</span>, <span class="attr">params</span>: &#123; userId &#125;&#125;) <span class="comment">// -&gt; /user/123</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">`/user/<span class="subst">$&#123;userId&#125;</span>`</span> &#125;) <span class="comment">// -&gt; /user/123</span></span><br><span class="line"><span class="comment">// 此處params不生效</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">'/user'</span>, <span class="attr">params</span>: &#123; userId &#125;&#125;) <span class="comment">// -&gt; /user</span></span><br></pre></td></tr></table></figure>
+
+<p>html內添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"nav-link"</span> @<span class="attr">click.prevent</span>=<span class="string">"updatePath"</span>&gt;</span>切換GO<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>js內添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    updatePath() &#123;</span><br><span class="line">        <span class="keyword">this</span>.$router.push(<span class="string">'/page/child2'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="router-replace"><a href="#router-replace" class="headerlink" title="router.replace"></a>router.replace</h3><p>跟<code>router.push</code>很像，不同的是，它不會增加history的記錄，只會替換掉目前的history記錄。</p>
+<table>
+<thead>
+<tr>
+<th>Declarative</th>
+<th>Programmatic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;router-link :to=&quot;...&quot; replace&gt;</code></td>
+<td><code>router.replace(...)</code></td>
+</tr>
+</tbody></table>
+<h3 id="router-go-router-forward"><a href="#router-go-router-forward" class="headerlink" title="router.go / router.forward"></a>router.go / router.forward</h3><p>這個方法的參數是一個整數，在history記錄中向前或向後多少步，類似 <code>window.history.go(n)</code>。<br>文件使用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在瀏覽器記錄中前進一步，與history.forward()相同</span></span><br><span class="line">router.go(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 後退一步記錄，與history.back()相同</span></span><br><span class="line">router.go(<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前進3步記錄</span></span><br><span class="line">router.go(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果history記錄不夠用，就只能默默的失敗啦</span></span><br><span class="line">router.go(<span class="number">-100</span>)</span><br><span class="line">router.go(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<p>html內添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"nav-link"</span> @<span class="attr">click.prevent</span>=<span class="string">"beforePath"</span>&gt;</span>回到前頁<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>js內添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    beforePath() &#123;</span><br><span class="line">        <span class="keyword">this</span>.$router.back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue-Cli/" rel="tag"><i class="fa fa-tag"></i> Vue Cli</a>
+          
+            <a href="/tags/%E8%8F%9C%E8%9F%B2%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/" rel="tag"><i class="fa fa-tag"></i> 菜蟲學習筆記</a>
+          
+            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/10/note-20200409-1-1/" rel="next" title="菜蟲學習筆記：Vue Cli 環境建置">
+                <i class="fa fa-chevron-left"></i> 菜蟲學習筆記：Vue Cli 環境建置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/Yoshi_sit.jpg"
+                alt="Liberes" />
+            
+              <p class="site-author-name" itemprop="name">Liberes</p>
+              <p class="site-description motion-element" itemprop="description">我的學習筆記&生活記事</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-Router-安裝"><span class="nav-number">1.</span> <span class="nav-text">Vue Router 安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-Router-設置"><span class="nav-number">2.</span> <span class="nav-text">Vue Router 設置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Router配置檔案-前端路由"><span class="nav-number">2.1.</span> <span class="nav-text">1. Router配置檔案(前端路由)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-將檔案匯出至main-js"><span class="nav-number">2.2.</span> <span class="nav-text">2. 將檔案匯出至main.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-定義-Router-路徑"><span class="nav-number">2.3.</span> <span class="nav-text">3. 定義 Router 路徑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用-lt-router-view-gt-amp-lt-router-link-gt"><span class="nav-number">2.4.</span> <span class="nav-text">4. 使用 &lt;router-view&#x2F;&gt; &amp; &lt;router-link&#x2F;&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-router-view-gt"><span class="nav-number">2.4.1.</span> <span class="nav-text">&lt;router-view&#x2F;&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-router-link-gt"><span class="nav-number">2.4.2.</span> <span class="nav-text">&lt;router-link&#x2F;&gt;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-新增Router路徑及連結"><span class="nav-number">2.5.</span> <span class="nav-text">5. 新增Router路徑及連結</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新增路徑"><span class="nav-number">2.5.1.</span> <span class="nav-text">新增路徑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新增連結"><span class="nav-number">2.5.2.</span> <span class="nav-text">新增連結</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-製作巢狀路由頁面"><span class="nav-number">2.6.</span> <span class="nav-text">6. 製作巢狀路由頁面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在新增子分頁的分頁上，加入-lt-router-view-gt-lt-router-view-gt"><span class="nav-number">2.6.1.</span> <span class="nav-text">1.在新增子分頁的分頁上，加入&lt;router-view&gt;&lt;&#x2F;router-view&gt;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在Router的配置檔上加入子分頁"><span class="nav-number">2.6.2.</span> <span class="nav-text">2.在Router的配置檔上加入子分頁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-切換子分頁"><span class="nav-number">2.6.3.</span> <span class="nav-text">3.切換子分頁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#動態路由切換頁面-amp-ajax切換"><span class="nav-number">3.</span> <span class="nav-text">動態路由切換頁面 &amp; ajax切換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#調整動態路由路徑"><span class="nav-number">3.1.</span> <span class="nav-text">調整動態路由路徑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同個畫面執行兩個以上router-view"><span class="nav-number">4.</span> <span class="nav-text">同個畫面執行兩個以上router-view</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實際切換路由方法"><span class="nav-number">5.</span> <span class="nav-text">實際切換路由方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#router-push"><span class="nav-number">5.1.</span> <span class="nav-text">router.push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#router-replace"><span class="nav-number">5.2.</span> <span class="nav-text">router.replace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#router-go-router-forward"><span class="nav-number">5.3.</span> <span class="nav-text">router.go &#x2F; router.forward</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liberes</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-thermometer-three-quarters"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-coffee"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
