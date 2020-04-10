@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-TW">
+<head>
+  <meta name="google-site-verification" content="A6Kdr39jm13plGwbogsvCT6m3EP-Jn3xyhyfxbaitV4" />
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/yoshiegg@48.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/yoshiegg@32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/yoshiegg@16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/yoshiegg@48.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="把vue會用到的套件整理成一份清單，之後要找的時候也比較方便">
+<meta property="og:type" content="article">
+<meta property="og:title" content="菜蟲學習筆記：Vue 套件整理">
+<meta property="og:url" content="https://balajasa.github.io/category/posts/1945371742/index.html">
+<meta property="og:site_name" content="耀西的小角落">
+<meta property="og:description" content="把vue會用到的套件整理成一份清單，之後要找的時候也比較方便">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/kl8kRAg.png">
+<meta property="og:image" content="https://i.imgur.com/qXYkdkr.png">
+<meta property="og:image" content="https://i.imgur.com/DFpW8t2.png">
+<meta property="article:published_time" content="2020-04-10T13:59:15.000Z">
+<meta property="article:modified_time" content="2020-04-10T15:21:43.804Z">
+<meta property="article:author" content="Liberes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/kl8kRAg.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://balajasa.github.io/category/posts/1945371742/"/>
+
+
+
+
+
+  <title>菜蟲學習筆記：Vue 套件整理 | 耀西的小角落</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107720909-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-TW">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">耀西的小角落</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Yoshi isn't a Turtle.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首頁">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-歸檔">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://balajasa.github.io/category/posts/1945371742/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liberes">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/Yoshi_sit.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="耀西的小角落">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">菜蟲學習筆記：Vue 套件整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-10T21:59:15+08:00">
+                2020-04-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-10T23:21:43+08:00">
+                2020-04-10
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">文章字數 &#58;</span>
+                
+                <span title="Words count in article">
+                  581 
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+                
+                <span title="Reading time">
+                  2 分鐘
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>把vue會用到的套件整理成一份清單，之後要找的時候也比較方便</p>
+<a id="more"></a>
+
+<h2 id="1-Node-js"><a href="#1-Node-js" class="headerlink" title="1. Node.js"></a>1. Node.js</h2><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a><br><img src="https://i.imgur.com/kl8kRAg.png" alt=""></p>
+<p>安裝步驟：<a href="https://balajasa.github.io/2020/04/10/note-20200409-1-1/">菜蟲學習筆記：Vue Cli 環境建置 - 安裝Node.js</a></p>
+<h2 id="2-Vue-Cli"><a href="#2-Vue-Cli" class="headerlink" title="2.Vue Cli"></a>2.Vue Cli</h2><p><a href="https://github.com/vuejs/vue-cli/tree/v2#vue-cli--" target="_blank" rel="noopener">Vue Cli 2.x</a><br><a href="https://cli.vuejs.org/" target="_blank" rel="noopener">Vue Cli 3.0</a></p>
+<p>安裝步驟：[菜蟲學習筆記：Vue Cli 環境建置 - 安裝 Vue Cli 套件]</p>
+<h2 id="3-vue-axios"><a href="#3-vue-axios" class="headerlink" title="3.vue-axios"></a>3.vue-axios</h2><p><a href="https://www.npmjs.com/package/vue-axios" target="_blank" rel="noopener">vue-axios npm</a> (ajax套件)<br><a href="https://randomuser.me/" target="_blank" rel="noopener">Random User</a> (user API串接網站)</p>
+<p>1.安裝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save axios vue-axios</span><br></pre></td></tr></table></figure>
+
+<p>2.引入檔案<code>main.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span> <span class="comment">// 主要ajax的套件</span></span><br><span class="line"><span class="keyword">import</span> VueAxios <span class="keyword">from</span> <span class="string">'vue-axios'</span> <span class="comment">// 將ajax轉為vue的套件</span></span><br><span class="line"> </span><br><span class="line">Vue.use(VueAxios, axios)  <span class="comment">// 需使用此行程式碼才能執行</span></span><br></pre></td></tr></table></figure>
+
+<p>Usage:<br>You can use axios like this:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Vue.axios.get(api).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.data)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">this</span>.axios.get(api).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.data)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">this</span>.$http.get(api).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response.data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Vue-Router"><a href="#4-Vue-Router" class="headerlink" title="4. Vue Router"></a>4. Vue Router</h2><p><a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">Vue Router</a></p>
+<p>安裝步驟：<a href="https://balajasa.github.io/2020/04/10/note-20200410-1/#more">菜蟲學習筆記：Vue Router 配置</a></p>
+<h2 id="5-Bootstrap"><a href="#5-Bootstrap" class="headerlink" title="5. Bootstrap"></a>5. Bootstrap</h2><p>Bootstrap套件安裝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install bootstrap --save</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/qXYkdkr.png" alt=""></p>
+<p>因sass在vue cli沒有安裝完整的loader，此處可再加入<code>node-sass</code> <code>sass-loader</code>兩個套件，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install bootstrap node-sass sass-loader --save</span><br></pre></td></tr></table></figure>
+<p>※ 安裝完成後可至node_midules中找到Bootstrap資料夾，此處dist資料夾內為編譯過的css和js檔案；scss資料夾內為未編譯的檔案。(這邊會使用的是scss未編譯的檔案)</p>
+<p><img src="https://i.imgur.com/DFpW8t2.png" alt=""></p>
+<h2 id="6-jQuery"><a href="#6-jQuery" class="headerlink" title="6. jQuery"></a>6. jQuery</h2><p>若要使用bootstrap的javascript，就必須額外再安裝jquery和popper.js套件。<br>在VS Code終端機輸入安裝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save jquery popper.js</span><br></pre></td></tr></table></figure>
+
+<p>此時<code>至main.js</code>使用<code>import &#39;bootstrap&#39;;</code>即可載入含有javascript的bootstrap套件。</p>
+<h2 id="7-vue-loading-overlay"><a href="#7-vue-loading-overlay" class="headerlink" title="7. vue-loading-overlay"></a>7. vue-loading-overlay</h2><p>Loading效果套件，可以全螢幕或在指定的Element中顯示<br><a href="https://github.com/ankurk91/vue-loading-overlay" target="_blank" rel="noopener">vue-loading-overlay</a></p>
+<p>1.安裝<code>npm install vue-loading-overlay</code> 套件，並至main.js載入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Loading <span class="keyword">from</span> <span class="string">'vue-loading-overlay'</span>;  </span><br><span class="line"><span class="keyword">import</span> <span class="string">'vue-loading-overlay/dist/vue-loading.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用全域載入套件方式</span></span><br><span class="line">Vue.component(<span class="string">'Loading'</span> , Loading);</span><br></pre></td></tr></table></figure>
+
+<p>2.將loading元件放置html中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">loading</span> <span class="attr">:active.sync</span>=<span class="string">"isLoading"</span> <span class="attr">:can-cancel</span>=<span class="string">"true"</span> <span class="attr">:on-cancel</span>=<span class="string">"onCancel"</span> <span class="attr">:is-full-page</span>=<span class="string">"fullPage"</span>&gt;</span><span class="tag">&lt;/<span class="name">loading</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-Event-Bus"><a href="#8-Event-Bus" class="headerlink" title="8. Event.Bus"></a>8. Event.Bus</h2><p><a href="https://github.com/greenrobot/EventBus" target="_blank" rel="noopener">Event.Bus</a></p>
+<p>使用Event.Bus套件可以跨元件通訊<br>新增bus.js，且直接掛載在Vue的原型下，並注入到main.js裡面<br>※ 此處另開js檔是為使用全域註冊，若之後在其他頁面要使用AlertMessage，直接載入此元件即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line">Vue.prototype.$bus = <span class="keyword">new</span> Vue();  <span class="comment">// 直接掛載在Vue的原型下</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 至main.js載入event.bus的檔案</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./bus'</span>;</span><br></pre></td></tr></table></figure>
+<p>參考：<a href="https://ithelp.ithome.com.tw/articles/10188117" target="_blank" rel="noopener">https://ithelp.ithome.com.tw/articles/10188117</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/category/posts/3844024026/" rel="next" title="菜蟲學習筆記：Vue Router 配置">
+                <i class="fa fa-chevron-left"></i> 菜蟲學習筆記：Vue Router 配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/category/posts/4193935908/" rel="prev" title="跟著Liberes趴趴走 - 2020 韓國首爾自由行">
+                跟著Liberes趴趴走 - 2020 韓國首爾自由行 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/Yoshi_sit.jpg"
+                alt="Liberes" />
+            
+              <p class="site-author-name" itemprop="name">Liberes</p>
+              <p class="site-description motion-element" itemprop="description">我的學習筆記&生活記事</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Node-js"><span class="nav-number">1.</span> <span class="nav-text">1. Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Vue-Cli"><span class="nav-number">2.</span> <span class="nav-text">2.Vue Cli</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-vue-axios"><span class="nav-number">3.</span> <span class="nav-text">3.vue-axios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Vue-Router"><span class="nav-number">4.</span> <span class="nav-text">4. Vue Router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Bootstrap"><span class="nav-number">5.</span> <span class="nav-text">5. Bootstrap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-jQuery"><span class="nav-number">6.</span> <span class="nav-text">6. jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-vue-loading-overlay"><span class="nav-number">7.</span> <span class="nav-text">7. vue-loading-overlay</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Event-Bus"><span class="nav-number">8.</span> <span class="nav-text">8. Event.Bus</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liberes</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-thermometer-three-quarters"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-coffee"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
