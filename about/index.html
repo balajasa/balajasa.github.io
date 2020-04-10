@@ -78,6 +78,9 @@
 
 
 
+  <meta property="fb:admins" content="" />
+  <meta property="fb:app_id" content="221953645710768" />
+
 
 
 <meta name="description" content="歡迎來到我的小角落~~         正在學習前端的菜蟲         想把目前學習的過程記錄下來         堅信著耀西不是烏龜">
@@ -130,6 +133,24 @@
 
   <title>關於我 | 耀西的小角落</title>
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '221953645710768',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -310,6 +331,16 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments"
+           data-href="https://balajasa.github.io/about/index.html"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    </div>
 
   
 
