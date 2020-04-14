@@ -91,7 +91,7 @@
 <meta property="og:description" content="完成初步部落格的設置後，預設的主題覺得很傷眼睛換主題是建部落格時最開心也最燒腦的事">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-04-07T08:40:00.000Z">
-<meta property="article:modified_time" content="2020-04-10T15:18:04.754Z">
+<meta property="article:modified_time" content="2020-04-14T05:06:08.539Z">
 <meta property="article:author" content="Liberes">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -321,7 +321,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">發表於 </span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-07T16:40:00+08:00">
                 2020-04-07
@@ -337,10 +337,10 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Post modified&#58;</span>
+                <span class="post-meta-item-text">更新於 </span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-04-10T23:18:04+08:00">
-                2020-04-10
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-14T13:06:08+08:00">
+                2020-04-14
               </time>
             
           </span>
@@ -484,22 +484,27 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true  &#x2F;&#x2F; 單篇文章字數統計</span><br><span class="line">  min2read: true  &#x2F;&#x2F; 單篇文章閱讀時間</span><br><span class="line">  totalcount: false  &#x2F;&#x2F; 網站字數統計</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-設定標籤-amp-分類"><a href="#3-設定標籤-amp-分類" class="headerlink" title="3. 設定標籤 &amp; 分類"></a>3. 設定標籤 &amp; 分類</h3><p>這個在設定時搞了很久才弄出來，一定要記錄一下！！！<br>首先，輸入以下語法建立標籤和分類的頁面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page tags</span><br><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
+
 <p>建立完成後，到 theme/next/_config.yml ，找到 menu 將 tags 和 categories 的註解打開。(若已經打開的話則無需理會)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  tags: &#x2F;tags&#x2F;|| tags</span><br><span class="line">  categories: &#x2F;categories&#x2F;|| th</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">剛才建立的頁面還需做一些調整，到 &#96;&#x2F;source&#96; 資料夾中，會看到 &#96;tags&#96; 和 &#96;categories&#96; 兩個資料夾，分別打開裡面的 &#96;index.md&#96; ，分別加上 &#96;type: &quot;tags&quot;&#96; 以及 &#96;type: &quot;categories&quot;&#96;即可。</span><br><span class="line"></span><br><span class="line">### 4. 優化URL</span><br><span class="line">Hexo本身Url的SEO狀況並不是設計非常漂亮，因為在 SEO 規範中文連結遠比英文連結差，所以這邊紀錄一下該如何使用。</span><br><span class="line"></span><br><span class="line">1.首先，安裝hexo-abbrlink套件</span><br></pre></td></tr></table></figure>
-<p>npm install hexo-abbrlink –save</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.安裝完畢後，開啟_config.yml找到permalink</span><br></pre></td></tr></table></figure>
-<p>permalink: :category/:year:month:day/:abbrlink/<br>            /posts/:abbrlink/<br>// 這邊網址的顯示方式可自行做調整</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">然後在文件最末端加入abbrlink設置</span><br></pre></td></tr></table></figure>
-<h1 id="abbrlink-config"><a href="#abbrlink-config" class="headerlink" title="abbrlink config"></a>abbrlink config</h1><p>abbrlink:<br>  alg: crc32  # 演算法：crc16(default) and crc32<br>  rep: dec    # 進位制：dec(default) and hex</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">※ 在套件的 GitHub 下方有解釋四種生成方式。</span><br></pre></td></tr></table></figure>
-<p>crc16 &amp; hex<br><a href="https://balajasa.github.io/posts/66c8">https://balajasa.github.io/posts/66c8</a></p>
-<p>crc16 &amp; dec<br><a href="https://balajasa.github.io/posts/65535">https://balajasa.github.io/posts/65535</a></p>
-<p>crc32 &amp; hex<br><a href="https://balajasa.github.io/posts/8ddf18fb">https://balajasa.github.io/posts/8ddf18fb</a></p>
-<p>crc32 &amp; dec<br><a href="https://balajasa.github.io/posts/1690090958">https://balajasa.github.io/posts/1690090958</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3.Category 調整</span><br><span class="line">若連結內有使用分類名稱為url的話，這邊需要先做調整</span><br><span class="line">首先，開啟_config.yml找到category_map，然後依照分類的名稱新增</span><br></pre></td></tr></table></figure>
-<h1 id="Category-amp-Tag"><a href="#Category-amp-Tag" class="headerlink" title="Category &amp; Tag"></a>Category &amp; Tag</h1><h1 id="中文名稱-英文名稱"><a href="#中文名稱-英文名稱" class="headerlink" title="中文名稱:英文名稱"></a>中文名稱:英文名稱</h1><p>category_map:<br>  Hexo部落格: hexo<br>  前端筆記: webnote<br>  HTML: html<br>  CSS: css</p>
-<p>```<br>※ 這邊要注意分類最好不要有空格，英文前後空格也不要有，否則可能會無法正常對應。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  tags: &#x2F;tags&#x2F;|| tags</span><br><span class="line">  categories: &#x2F;categories&#x2F;|| th</span><br></pre></td></tr></table></figure>
+
+<p>剛才建立的頁面還需做一些調整，到 <code>/source</code> 資料夾中，會看到 <code>tags</code> 和 <code>categories</code> 兩個資料夾，分別打開裡面的 <code>index.md</code> ，分別加上 <code>type: &quot;tags&quot;</code> 以及 <code>type: &quot;categories&quot;</code>即可。</p>
+<h3 id="4-優化URL"><a href="#4-優化URL" class="headerlink" title="4. 優化URL"></a>4. 優化URL</h3><p>Hexo本身Url的SEO狀況並不是設計非常漂亮，因為在 SEO 規範中文連結遠比英文連結差，所以這邊紀錄一下該如何使用。</p>
+<p>1.首先，安裝hexo-abbrlink套件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<p>2.安裝完畢後，開啟_config.yml找到permalink</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">permalink: :category&#x2F;:year:month:day&#x2F;:abbrlink&#x2F;</span><br><span class="line">            &#x2F;posts&#x2F;:abbrlink&#x2F;</span><br><span class="line">&#x2F;&#x2F; 這邊網址的顯示方式可自行做調整</span><br></pre></td></tr></table></figure>
+
+<p>然後在文件最末端加入abbrlink設置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># abbrlink config</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 演算法：crc16(default) and crc32 </span><br><span class="line">  rep: dec    # 進位制：dec(default) and hex</span><br></pre></td></tr></table></figure>
+<p>※ 在套件的 GitHub 下方有解釋四種生成方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">crc16 &amp; hex</span><br><span class="line">https:&#x2F;&#x2F;balajasa.github.io&#x2F;posts&#x2F;66c8</span><br><span class="line"></span><br><span class="line">crc16 &amp; dec</span><br><span class="line">https:&#x2F;&#x2F;balajasa.github.io&#x2F;posts&#x2F;65535</span><br><span class="line"></span><br><span class="line">crc32 &amp; hex</span><br><span class="line">https:&#x2F;&#x2F;balajasa.github.io&#x2F;posts&#x2F;8ddf18fb</span><br><span class="line"></span><br><span class="line">crc32 &amp; dec</span><br><span class="line">https:&#x2F;&#x2F;balajasa.github.io&#x2F;posts&#x2F;1690090958</span><br></pre></td></tr></table></figure>
+
+<p>3.Category 調整<br>若連結內有使用分類名稱為url的話，這邊需要先做調整<br>首先，開啟_config.yml找到category_map，然後依照分類的名稱新增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Category &amp; Tag</span><br><span class="line"># 中文名稱:英文名稱</span><br><span class="line">category_map:</span><br><span class="line">  Hexo部落格: hexo</span><br><span class="line">  前端筆記: webnote</span><br><span class="line">  HTML: html</span><br><span class="line">  CSS: css</span><br></pre></td></tr></table></figure>
+<p>※ 這邊要注意分類最好不要有空格，英文前後空格也不要有，否則可能會無法正常對應。</p>
 <hr>
 <p>參考來源：<br><a href="https://www.twblogs.net/a/5c2a0256bd9eee01606d3636" target="_blank" rel="noopener">https://www.twblogs.net/a/5c2a0256bd9eee01606d3636</a><br><a href="https://hsiangfeng.github.io/hexo/20190517/2562079032/" target="_blank" rel="noopener">https://hsiangfeng.github.io/hexo/20190517/2562079032/</a></p>
 
@@ -560,8 +565,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/category/posts/323938171/" rel="prev" title="菜蟲學習筆記：Vue Cli 環境建置">
-                菜蟲學習筆記：Vue Cli 環境建置 <i class="fa fa-chevron-right"></i>
+              <a href="/category/posts/2144437936/" rel="prev" title="菜蟲學習筆記： Bootstrap 網格概念">
+                菜蟲學習筆記： Bootstrap 網格概念 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -653,7 +658,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -664,7 +669,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -675,7 +680,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -718,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-主題更換"><span class="nav-number">1.</span> <span class="nav-text">Hexo 主題更換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝喜愛的主題"><span class="nav-number">1.1.</span> <span class="nav-text">安裝喜愛的主題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題設定"><span class="nav-number">1.2.</span> <span class="nav-text">主題設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版型設定"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 版型設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-代碼背景"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 代碼背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-大頭貼設定"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 大頭貼設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-設置社群媒體連結"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 設置社群媒體連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-增加選單分頁"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 增加選單分頁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-設置網站icon"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 設置網站icon</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主題套件設定"><span class="nav-number">2.</span> <span class="nav-text">主題套件設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在部落格底部增加訪客統計"><span class="nav-number">2.1.</span> <span class="nav-text">1. 在部落格底部增加訪客統計</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-文章字數統計-amp-預計閱讀時間"><span class="nav-number">2.2.</span> <span class="nav-text">2. 文章字數統計 &amp; 預計閱讀時間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-設定標籤-amp-分類"><span class="nav-number">2.3.</span> <span class="nav-text">3. 設定標籤 &amp; 分類</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#abbrlink-config"><span class="nav-number"></span> <span class="nav-text">abbrlink config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Category-amp-Tag"><span class="nav-number"></span> <span class="nav-text">Category &amp; Tag</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中文名稱-英文名稱"><span class="nav-number"></span> <span class="nav-text">中文名稱:英文名稱</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-主題更換"><span class="nav-number">1.</span> <span class="nav-text">Hexo 主題更換</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝喜愛的主題"><span class="nav-number">1.1.</span> <span class="nav-text">安裝喜愛的主題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主題設定"><span class="nav-number">1.2.</span> <span class="nav-text">主題設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-版型設定"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 版型設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-代碼背景"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 代碼背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-大頭貼設定"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 大頭貼設定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-設置社群媒體連結"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 設置社群媒體連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-增加選單分頁"><span class="nav-number">1.2.5.</span> <span class="nav-text">5. 增加選單分頁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-設置網站icon"><span class="nav-number">1.2.6.</span> <span class="nav-text">6. 設置網站icon</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主題套件設定"><span class="nav-number">2.</span> <span class="nav-text">主題套件設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在部落格底部增加訪客統計"><span class="nav-number">2.1.</span> <span class="nav-text">1. 在部落格底部增加訪客統計</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-文章字數統計-amp-預計閱讀時間"><span class="nav-number">2.2.</span> <span class="nav-text">2. 文章字數統計 &amp; 預計閱讀時間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-設定標籤-amp-分類"><span class="nav-number">2.3.</span> <span class="nav-text">3. 設定標籤 &amp; 分類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-優化URL"><span class="nav-number">2.4.</span> <span class="nav-text">4. 優化URL</span></a></li></ol></li></ol></div>
             
 
           </div>
